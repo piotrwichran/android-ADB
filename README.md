@@ -1,5 +1,3 @@
-Oto gotowy, czytelny tutorial po polsku w formacie Markdown, idealny do wrzucenia na GitHub (np. jako `README.md` lub `BACKUP_ANDROID.md`):
-
 # Pełny backup telefonu z Androidem za pomocą ADB (bez roota)
 
 Ten poradnik pokazuje, jak w kilka minut zrobić bardzo szczegółowy backup ważnych danych z telefonu z Androidem – bez rootowania urządzenia. Wszystko robimy z poziomu komputera za pomocą narzędzia `adb` (Android Debug Bridge).
