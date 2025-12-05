@@ -7,14 +7,14 @@ Najpełniejszy zestaw poleceń ADB, jaki zrobisz na telefonie bez roota.
 # 1. Sprawdź, czy telefon jest widoczny
 ```bash
 adb devices
-```
+
 # Powinno zwrócić coś takiego:
 # List of devices attached
 # 1234567890abcdef    device
 # Jeśli widzisz unauthorized → odblokuj telefon i zaakceptuj klucz RSA
 # Jeśli widzisz offline → wyciągnij i włóż kabel albo zmień port USB
 # Jeśli nic nie widać → zainstaluj sterowniki telefonu / inny kabel
-
+```
 # 2. (Opcjonalnie) Wejdź do trybu tylko ADB (bez ładowania)
 ```bash
 adb usb
