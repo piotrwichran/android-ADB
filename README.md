@@ -4,7 +4,7 @@ Najpełniejszy zestaw poleceń ADB, jaki zrobisz na telefonie bez roota.
 
 ## Przygotowanie (zrób to raz)
 
-# 1. Sprawdź, czy telefon jest widoczny
+### 1. Sprawdź, czy telefon jest widoczny
 ```bash
 adb devices
 
@@ -15,12 +15,12 @@ adb devices
 # Jeśli widzisz offline → wyciągnij i włóż kabel albo zmień port USB
 # Jeśli nic nie widać → zainstaluj sterowniki telefonu / inny kabel
 ```
-# 2. (Opcjonalnie) Wejdź do trybu tylko ADB (bez ładowania)
+### 2. (Opcjonalnie) Wejdź do trybu tylko ADB (bez ładowania)
 ```bash
 adb usb
 ```
 
-# 3. Włącznie wyłącz weryfikację przy każdym połączeniu (wygodne przy skryptach)
+### 3. Włącznie wyłącz weryfikację przy każdym połączeniu (wygodne przy skryptach)
 ```bash
 adb kill-server && adb start-server
 ```
@@ -28,12 +28,12 @@ adb kill-server && adb start-server
 
 # Pełny backup telefonu z Androidem za pomocą ADB (bez roota)
 
-# Tworzymy główny folder
+### Tworzymy główny folder
 ```bash
 mkdir telefon_backup
 cd telefon_backup
 ```
-# === 1. Kopiujemy najważniejsze foldery użytkownika ===
+### === 1. Kopiujemy najważniejsze foldery użytkownika ===
 ```bash
 adb pull /sdcard/DCIM                 DCIM
 adb pull /sdcard/Pictures              Pictures
@@ -47,14 +47,14 @@ adb pull /sdcard/SMSBackupRestore      SMS                   # jeśli używasz t
 adb pull /sdcard/WhatsApp              WhatsApp              # cały WhatsApp!
 adb pull /sdcard/Telegram              Telegram
 ```
-# === 2. Listy aplikacji ===
+### === 2. Listy aplikacji ===
 ```bash
 adb shell pm list packages -3                    > apps_user.txt
 adb shell pm list packages -s                    > apps_system.txt
 adb shell pm list packages                       > apps_all.txt
 adb shell pm list packages -3 | sed 's/package://g' > apps_user_clean.txt
 ```
-# === 3. Informacje o urządzeniu i systemie ===
+### === 3. Informacje o urządzeniu i systemie ===
 ```bash
 adb shell getprop                                        > 01_system_info.txt
 adb shell cat /system/build.prop                         > 02_build_prop.txt
@@ -66,25 +66,25 @@ adb shell df -h                                          > 07_storage_usage.txt
 adb shell cat /proc/cpuinfo                                 > 08_cpuinfo.txt
 adb shell cat /proc/meminfo                              > 09_meminfo.txt
 ```
-# === 4. Struktura pamięci wewnętrznej ===
+### === 4. Struktura pamięci wewnętrznej ===
 ```bash
 adb shell ls -lR /sdcard                                 > drzewo_sdcard.txt
 adb shell du -sh /sdcard/* | sort -h                     > rozmiary_katalogow.txt
 ```
-# === 5. Logi i diagnostyka ===
+### === 5. Logi i diagnostyka ===
 ```bash
 adb logcat -d                                            > logcat_full.txt
 adb logcat -d -b crash                                   > logcat_crash.txt
 adb bugreport                                            > bugreport.zip
 ```
-# === 6. Zrzuty ekranu i nagrywanie ===
+### === 6. Zrzuty ekranu i nagrywanie ===
 ```bash
 adb exec-out screencap -p                                > screen_$(date +%Y%m%d_%H%M%S).png
 adb shell screenrecord /sdcard/screenrecord.mp4 --time-limit 180
 adb pull /sdcard/screenrecord.mp4                      screenrecord_$(date +%Y%m%d_%H%M%S).mp4
 adb shell rm /sdcard/screenrecord.mp4
 ```
-# === 7. Dodatkowe przydatne rzeczy ===
+### === 7. Dodatkowe przydatne rzeczy ===
 ```bash
 adb shell dumpsys package                                > pakiety_szczegoly.txt
 adb shell dumpsys activity activities                    > aktualne_aktywnosci.txt
