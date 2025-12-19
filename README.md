@@ -94,5 +94,11 @@ adb shell dumpsys wifi                                   > wifi_info.txt
 adb shell ls /system/bin                                 > binarki.txt
 adb shell dumpsys telephony.registry                     > sim_i_siec.txt
 ```
-
+---
+```bash
+adb shell settings get global private_dns_mode
+adb shell settings get global private_dns_specifier
+adb shell cat /system/etc/hosts
+adb shell ping google.com
+```
 
