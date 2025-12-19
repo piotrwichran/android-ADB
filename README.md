@@ -63,13 +63,13 @@ adb shell wm density                                     > 04_screen_density.txt
 adb shell dumpsys battery                                > 05_battery.txt
 adb shell dumpsys meminfo                                > 06_memory.txt
 adb shell df -h                                          > 07_storage_usage.txt
-adb shell cat /proc/cpuinfo                                 > 08_cpuinfo.txt
+adb shell cat /proc/cpuinfo                              > 08_cpuinfo.txt
 adb shell cat /proc/meminfo                              > 09_meminfo.txt
 ```
 ### === 4. Struktura pamięci wewnętrznej ===
 ```bash
-adb shell ls -R /sdcard                                 > drzewo_sdcard.txt
-adb shell du -sh /sdcard/* | sort -h                     > rozmiary_katalogow.txt
+adb shell ls -R /sdcard                                   > drzewo_sdcard.txt
+adb shell du -sh /sdcard/* | sort -h                      > rozmiary_katalogow.txt
 ```
 ### === 5. Logi i diagnostyka ===
 ```bash
@@ -89,8 +89,9 @@ adb shell rm /sdcard/screenrecord.mp4
 adb shell dumpsys package                                > pakiety_szczegoly.txt
 adb shell dumpsys activity activities                    > aktualne_aktywnosci.txt
 adb shell top -n 1                                       > top.txt
-adb shell ps -A -o pid,ppid,name,rss,vsz,%cpu,%mem        > procesy_szczegolowe.txt
+adb shell ps -A -o pid,ppid,name,rss,vsz,%cpu,%mem       > procesy_szczegolowe.txt
 adb shell dumpsys wifi                                   > wifi_info.txt
+adb shell ls /system/bin                                 > binarki.txt
 adb shell dumpsys telephony.registry                     > sim_i_siec.txt
 ```
 
